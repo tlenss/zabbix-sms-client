@@ -4,7 +4,7 @@ zabbix-sms-client
 zabbix sms client script
 
 example:
-./sms.ph +3111122333 "Subject" "Message"
+./sms.php +3111122333 "Subject" "Message"
 
 
 1. Move all file to your Zabbix AlertScripts path
