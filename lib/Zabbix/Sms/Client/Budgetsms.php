@@ -28,6 +28,6 @@ class Budgetsms extends ZS\Client
     {
         $this->_params['msg'] = $text;
 
-        parent::send();
+        parent::send($text);
     }
 }

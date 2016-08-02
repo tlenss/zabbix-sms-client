@@ -2,21 +2,24 @@
 <?php
 require_once 'lib/Zabbix/Sms/Autoload.php';
 
+require 'config.php';
+
 use Zabbix\Sms AS ZS;
 
-ZS\Autoload::register('./lib');
+ZS\Autoload::register(dirname(__FILE__) . '/lib');
 
 if (count($argv)<3) {
     die("Usage: {$argv[0]} recipient subject message\n");
 }
 
 try {
-    $client = ZS\Factory::Get('Nexmo', array(
-        "username" => '',
-        "password" => '',
-        "to"       => $argv[1],
-        "from"     => 'Zabbix',
-    ));
+    $client = ZS\Factory::Get(GATEWAY_TYPE, [
+        'user' => GATEWAY_USER,
+        'password' => GATEWAY_PASSWORD,
+        'to'       => $argv[1],
+        'from'     => FROM,
+        'api_id'   => GATEWAY_API_ID,
+    ]);
 
     $client->send($argv[2] . ':' . $argv[3]);
 } catch (ZS\Exception $e) {

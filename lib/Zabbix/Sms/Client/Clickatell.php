@@ -26,9 +26,9 @@ class Clickatell extends ZS\Client
      */
     public function send($text)
     {
-        $this->_params['msg'] = $text;
+        $this->_params['text'] = $text;
         $this->_params['concat'] = 3;
 
-        parent::send();
+        parent::send($text);
     }
 }

@@ -1,0 +1,7 @@
+<?php
+// Copy this file to config.php and edit the constants below
+define('GATEWAY_TYPE', 'Clickatell');
+define('GATEWAY_API_ID', 'CHANGEME');
+define('GATEWAY_USER', 'CHANGME');
+define('GATEWAY_PASSWORD', 'CHANGEME');
+define('FROM', 'CHANGEME');

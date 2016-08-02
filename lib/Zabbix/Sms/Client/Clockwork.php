@@ -28,6 +28,6 @@ class Clockwork extends ZS\Client
     {
         $this->_params['content'] = $text;
 
-        parent::send();
+        parent::send($text);
     }
 }
