@@ -9,19 +9,13 @@ use Zabbix\Sms AS ZS;
 ZS\Autoload::register(dirname(__FILE__) . '/lib');
 
 if (count($argv)<3) {
-    die("Usage: {$argv[0]} recipient subject message\n");
+    die("Usage: {$argv[0]} [recipient] [subject] [message]\n");
 }
 
 try {
-    $client = ZS\Factory::Get(GATEWAY_TYPE, [
-        'user' => GATEWAY_USER,
-        'password' => GATEWAY_PASSWORD,
-        'to'       => $argv[1],
-        'from'     => FROM,
-        'api_id'   => GATEWAY_API_ID,
-    ]);
+    $client = ZS\Factory::Get(GATEWAY_TYPE, GATEWAY_PARAMS);
 
-    $client->send($argv[2] . ':' . $argv[3]);
+    $client->send($argv[1], implode(':', [$argv[2], $argv[3]]));
 } catch (ZS\Exception $e) {
     echo $e->getMessage();
 }

@@ -17,18 +17,18 @@ class Clickatell extends ZS\Client
      *
      * @var string
      */
-    protected static $_baseUrl = 'http://api.clickatell.com/http/sendmsg';
+    protected static $_baseUrl = 'https://platform.clickatell.com/messages/http/send';
 
     /**
      * Set message var and call parent::send
      *
      * @see \Zabbix\Sms\Client::send()
      */
-    public function send($text)
+    public function send($recipient, $text)
     {
-        $this->_params['text'] = $text;
-        $this->_params['concat'] = 3;
+        $this->_params['content'] = $text;
+        $this->_params['to'] = $recipient;
 
-        parent::send($text);
+        parent::send($recipient, $text);
     }
 }
