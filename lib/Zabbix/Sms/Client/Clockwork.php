@@ -17,17 +17,19 @@ class Clockwork extends ZS\Client
      *
      * @var string
      */
-    protected static $_baseUrl = 'https://api.clockworksms.com/http/send';
+    protected static $_baseUrl = 'https://api.clockworksms.com/http/send.aspx';
 
     /**
      * Set message var and call parent::send
      *
      * @see \Zabbix\Sms\Client::send()
      */
-    public function send($text)
+    public function send($recipient, $text)
     {
         $this->_params['content'] = $text;
+        $this->_params['to'] = $recipient;
+        $this->_params['long'] = 1;
 
-        parent::send();
+        parent::send($recipient, $text);
     }
 }
