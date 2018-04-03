@@ -17,17 +17,18 @@ class Budgetsms extends ZS\Client
      *
      * @var string
      */
-    protected static $_baseUrl = 'http://www.budgetsms.net/api/sendsms';
+    protected static $_baseUrl = 'https://api.budgetsms.net/sendsms/';
 
     /**
      * Set message var and call parent::send
      *
      * @see \Zabbix\Sms\Client::send()
      */
-    public function send($text)
+    public function send($recipient, $text)
     {
         $this->_params['msg'] = $text;
+        $this->_params['to'] = $recipient;
 
-        parent::send();
+        parent::send($recipient, $text);
     }
 }

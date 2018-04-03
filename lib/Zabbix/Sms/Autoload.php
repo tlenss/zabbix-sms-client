@@ -29,7 +29,7 @@ class Autoload
      * 
      * @param string $path
      */
-    public function register($path)
+    public static function register($path)
     {
         self::$_path = $path;
         self::addPath($path);

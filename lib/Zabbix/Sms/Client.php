@@ -60,7 +60,7 @@ class Client
      * 
      * @throws Exception
      */
-    public function send()
+    public function send($recipient, $text)
     {
         $this->_url = self::BuildUrl($this->_params);
         

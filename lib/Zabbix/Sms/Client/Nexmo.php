@@ -28,6 +28,6 @@ class Nexmo extends ZS\Client
     {
         $this->_params['text'] = $text;
 
-        parent::send();
+        parent::send($text);
     }
 }
