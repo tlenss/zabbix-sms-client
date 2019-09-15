@@ -27,3 +27,11 @@ define('GATEWAY_PARAMS', [
 ]);
 */
 
+/*
+define('GATEWAY_TYPE', 'Infobip');
+define('GATEWAY_PARAMS', [
+    'username' => 'CHANGEME',
+    'password' => 'CHANGEME',
+    'from' => 'CHANGEME',
+]);
+*/

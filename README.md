@@ -1,7 +1,7 @@
 zabbix-sms-client
 =================
 
-Zabbix SMS alert script, using an internet gateway (Clickatell, Clockwork, Budgetsms)
+Zabbix SMS alert script, using an internet gateway (Clickatell, Clockwork, Budgetsms, Infobip)
 
 example:
 ./sms.php +3111122333 "Subject" "Message"
